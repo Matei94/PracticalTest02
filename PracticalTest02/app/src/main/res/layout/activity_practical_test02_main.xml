@@ -12,5 +12,91 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="SERVER"
+        android:id="@+id/tvServer"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/tvFake"
+        android:layout_below="@+id/tvServer"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/etServer1"
+        android:layout_below="@+id/tvServer"
+        android:layout_toLeftOf="@+id/tvFake"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Port" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Server"
+        android:id="@+id/btnServer1"
+        android:layout_below="@+id/tvServer"
+        android:layout_toRightOf="@+id/tvFake"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="CLIENT"
+        android:id="@+id/tvClient"
+        android:layout_below="@+id/btnServer1"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etClient1"
+        android:layout_below="@+id/tvClient"
+        android:layout_toLeftOf="@+id/tvFake"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Address" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/etClient2"
+        android:layout_below="@+id/tvClient"
+        android:layout_toRightOf="@+id/tvFake"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:hint="Port" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etClient3"
+        android:layout_below="@+id/etClient1"
+        android:layout_toLeftOf="@+id/tvFake"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="City" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Client"
+        android:id="@+id/btnClient1"
+        android:layout_below="@+id/etClient2"
+        android:layout_toRightOf="@+id/tvFake"
+        android:layout_alignRight="@+id/etClient2"
+        android:layout_alignEnd="@+id/etClient2" />
+
 </RelativeLayout>
