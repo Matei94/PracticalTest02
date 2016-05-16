@@ -1,5 +1,6 @@
 package practicaltest02.eim.systems.cs.pub.ro.practicaltest02;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
@@ -17,9 +18,9 @@ public class ClientThread extends Thread {
     private int num1, num2;
     private int op;
     private int port;
-    private Context context;
+    private Activity context;
 
-    public ClientThread(int num1, int num2, int op, int port, Context context) {
+    public ClientThread(int num1, int num2, int op, int port, Activity context) {
         this.num1 = num1;
         this.num2 = num2;
         this.op = op;
@@ -53,8 +54,16 @@ public class ClientThread extends Thread {
                 socketWriter.flush();
 
                 String result;
+                final Activity staticContext = this.context;
                 while ((result = sockerReader.readLine()) != null) {
-                    Toast.makeText(this.context, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    final String finalResult = result;
+                    this.context.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(staticContext, finalResult, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+//                    Log.d(Constants.TAG, "result: "+ result);
                 }
             }
 

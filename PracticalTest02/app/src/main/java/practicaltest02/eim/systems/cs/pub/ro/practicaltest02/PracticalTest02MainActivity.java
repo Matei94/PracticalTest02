@@ -79,7 +79,7 @@ public class PracticalTest02MainActivity extends AppCompatActivity {
             return;
         }
 
-        ClientThread clientThread = new ClientThread(Integer.parseInt(num1), Integer.parseInt(num2), Constants.ADD, this.serverPort, getApplicationContext());
+        ClientThread clientThread = new ClientThread(Integer.parseInt(num1), Integer.parseInt(num2), Constants.ADD, this.serverPort, this);
         clientThread.start();
     }
 
@@ -99,7 +99,7 @@ public class PracticalTest02MainActivity extends AppCompatActivity {
             return;
         }
 
-        ClientThread clientThread = new ClientThread(Integer.parseInt(num1), Integer.parseInt(num2), Constants.MUL, this.serverPort, getApplicationContext());
+        ClientThread clientThread = new ClientThread(Integer.parseInt(num1), Integer.parseInt(num2), Constants.MUL, this.serverPort, this);
         clientThread.start();
     }
 
