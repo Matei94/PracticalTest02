@@ -60,12 +60,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:id="@+id/etClient1"
         android:layout_below="@+id/tvClient"
         android:layout_toLeftOf="@+id/tvFake"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Address" />
+        android:hint="First" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -77,54 +78,25 @@
         android:layout_toRightOf="@+id/tvFake"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:hint="Port" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/etClient3"
-        android:layout_below="@+id/etClient1"
-        android:layout_toLeftOf="@+id/tvFake"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="City" />
+        android:hint="Second" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Client"
-        android:id="@+id/btnClient1"
+        android:text="Multiply"
+        android:id="@+id/btnClient2"
         android:layout_below="@+id/etClient2"
         android:layout_toRightOf="@+id/tvFake"
         android:layout_alignRight="@+id/etClient2"
         android:layout_alignEnd="@+id/etClient2" />
 
-    <Spinner
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spnClient1"
-        android:layout_below="@+id/etClient3"
+        android:text="Add"
+        android:id="@+id/btnClient1"
+        android:layout_below="@+id/etClient1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:entries="@array/information_types"
-        android:spinnerMode="dropdown"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/tvFake" />
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/spnClient1"
-        android:fillViewport="false">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/tvDataDisplay" />
-    </ScrollView>
 </RelativeLayout>

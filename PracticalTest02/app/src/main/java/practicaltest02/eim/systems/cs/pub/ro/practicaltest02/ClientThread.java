@@ -1,7 +1,9 @@
 package practicaltest02.eim.systems.cs.pub.ro.practicaltest02;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,31 +14,23 @@ import java.net.Socket;
  * Created by matei on 14-May-16.
  */
 public class ClientThread extends Thread {
-    private String address;
+    private int num1, num2;
+    private int op;
     private int port;
-    private String city;
-    private String informationType;
-    private TextView tvDataDisplay;
+    private Context context;
 
-    public ClientThread(
-            String address,
-            int port,
-            TextView tvDataDisplay,
-            String city,
-            String informationType
-    ) {
-        this.address = address;
-        this.port    = port;
-        this.tvDataDisplay = tvDataDisplay;
-
-        this.city            = city;
-        this.informationType = informationType;
+    public ClientThread(int num1, int num2, int op, int port, Context context) {
+        this.num1 = num1;
+        this.num2 = num2;
+        this.op = op;
+        this.port = port;
+        this.context = context;
     }
 
     @Override
     public void run() {
         try {
-            Socket socket = new Socket(this.address, this.port);
+            Socket socket = new Socket("localhost", this.port);
             if (socket == null) {
                 Log.d(Constants.TAG, "Could not create socket!");
             }
@@ -47,19 +41,20 @@ public class ClientThread extends Thread {
             if (sockerReader == null || socketWriter == null) {
                 Log.d(Constants.TAG, "Socker reader / writer is null");
             } else {
-                socketWriter.println(this.city);
+                String toWrite = "";
+                if (op == Constants.ADD) {
+                    toWrite = "add,";
+                } else {
+                    toWrite = "mul,";
+                }
+                toWrite = toWrite + String.valueOf(this.num1) + "," + String.valueOf(this.num2);
+
+                socketWriter.println(toWrite);
                 socketWriter.flush();
-                socketWriter.println(this.informationType);
-                socketWriter.flush();
-                String weatherInformation;
-                while ((weatherInformation = sockerReader.readLine()) != null) {
-                    final String finalizedWeatherInformation = weatherInformation;
-                    tvDataDisplay.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            tvDataDisplay.append(finalizedWeatherInformation + "\n");
-                        }
-                    });
+
+                String result;
+                while ((result = sockerReader.readLine()) != null) {
+                    Toast.makeText(this.context, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 }
             }
 

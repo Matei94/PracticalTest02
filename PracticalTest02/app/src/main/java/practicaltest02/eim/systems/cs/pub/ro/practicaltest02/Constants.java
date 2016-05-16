@@ -19,4 +19,7 @@ public class Constants {
     final public static String SCRIPT_TAG = "script";
     final public static String SEARCH_KEY = "wui.api_data =\\n";
     final public static String CURRENT_OBSERVATION = "current_observation";
+
+    final public static int ADD = 42;
+    final public static int MUL = 43;
 }
